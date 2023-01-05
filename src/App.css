@@ -5,12 +5,54 @@
     --orange: #FF7E1B;
     --black : #1D2026;
     --grey: #69707D;
+    --light-grey: #B6BCC8;
+}
+
+.wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 nav{
     display: flex;
     align-items: center;
-    padding:1.5em 1.5em;
+    padding:1.25em 1.5em;
+    position: relative;
+}
+
+.shopping-cart{
+    padding: 1.5em;
+    border-radius: 10px;
+    position: absolute;
+    top: 110%;
+    right: 10%;
+    z-index: 10;
+    background-color: #fff;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 360px;
+    max-height: 300px;
+    box-shadow: 0px 1px 3px #000;
+}
+
+.shopping-cart-products-list{
+    max-height: 140px;
+    overflow-y: scroll;
+}
+
+
+.shopping-cart-button{
+    width: 100%;
+    margin:1.5rem 0;
+    background-color: var(--orange);
+    border: none;
+    padding:1rem;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 10px;
+
 }
 
 .hamburger{
@@ -18,6 +60,7 @@ nav{
     margin-right: 1em;
     border: none;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .cart-img{
@@ -44,19 +87,18 @@ nav{
     padding-left: 1.5rem;
     padding-top: 1.5em;
     background-color:#fff;
-    height: 80vh;
     bottom: 0;
     left: 0;
     top: calc(25px + 2.2em);
+    height: 100vh;
     right:150px;
-    z-index: 2;
+    z-index: 1000;
     transition:500ms ease-in-out;
     transform: translateX(-100%);
 }
 
 .list-element{
     margin-bottom: 1.25em;
-
 }
 
 .list-link{
@@ -66,15 +108,51 @@ nav{
     color: var(--black);
 }
 
+.cart-element{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--grey);
+    margin-top: 1em;
+}
+
+
+.cart-element-thumbnail{
+    width: 50px;
+    margin-right: 1em;
+    border-radius: 4px;
+}
+
+.cart-element-final-price{
+    color: var(--black);
+    font-weight: 700;
+    margin-left: .5em;
+}
+
+.empty-cart-message{
+    text-align: center;
+    padding: 2em;
+    margin: 0 auto;
+
+    font-weight: 700;
+}
+
+.cart-element-trash-icon{
+    margin-left: auto;
+}
 
 .mobile-carousel{
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center 20%;
-    min-height: 320px;
     position: relative;
+    width: 100%;
 }
+
+.mobile-carousel-img{
+    max-height: 450px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
 
 .mobile-carousel-btn{
     position: absolute;
@@ -82,6 +160,7 @@ nav{
     border: none;
     padding: 14px 17px;
     cursor: pointer;
+    z-index: 4;
 }
 
 .mobile-prev{
@@ -99,6 +178,82 @@ nav{
     padding:1.5rem;
     display: flex;
     flex-direction: column;
+    max-width: 445px;
+}
+
+/*DESKTOP CAROUSEL*/
+.carouselWrapper{
+    display: flex;
+    flex-direction: row;
+    column-gap: 2em;
+    padding-bottom: 1em;
+}
+
+.carousel-main-img{
+    border-radius: 10px;
+    max-width: 445px;
+}
+
+.thumbnails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.thumbnails-img{
+    width: 88px;
+    border-radius: 10px;
+}
+
+.carousel-dialog{
+    position: relative;
+    background-size: cover;
+    max-width: 650px;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    overflow-x: visible;
+}
+
+.desktop-pre{
+    content: url();
+    position: absolute;
+    top:10px;
+    right:10px;
+}
+
+.desktop-prev{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+}
+
+.desktop-next{
+    position: absolute;
+    top: 50%;
+    right: 5px;
+}
+
+.carousel-dialog::backdrop{
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.close-button{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background-color: transparent;
+    padding: 8px;
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .company-name{
@@ -126,19 +281,85 @@ nav{
     justify-content: space-between;
 }
 
-.previous-price{
-    margin-left: auto;
+.price{
+    font-size:1.75rem;
+    color: var(--black);
+    display: flex;
+    align-items: center;
 }
+
+.discount{
+    font-size: .875rem;
+    margin-left: 1rem;
+    color: var(--orange);
+    background-color: rgba(255, 126, 27, .1);
+    padding: .5rem;
+    border-radius: 10px;
+}
+
+.previous-price{
+    color: var(--light-grey);
+    font-weight: 700;
+    text-decoration: line-through;
+}
+
+.purchase-settings{
+    display: flex;
+    flex-direction: column;
+}
+
+.quantity-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#F6F8FD;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+
+.edit-quantity{
+    padding: 1.5rem;
+    background-color: transparent;
+    border: none;
+}
+
+.add-to-basket{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    background-color: var(--orange);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.add-to-basket svg {margin-right: 1em;}
+
+.add-to-basket svg path{ fill: #fff;}
 
 
 
 @media(min-width:700px){
+
+    nav{
+        border-bottom: 1px solid #B6BCC8;
+    }
+
+
     .hamburger{
         display: none;
     }
 
     .propic-img{
         width: 50px;
+        margin-left: 2rem;
+    }
+    
+    .shopping-cart{
+        right: 10px;
+        top:90%;
     }
 
     .propic-img:hover,
@@ -176,7 +397,116 @@ nav{
         width: 100%;
         height:4px;
         position: absolute;
-        bottom: -40px;
+        bottom: -38px;
+        border-radius: 10px;
         background-color: var(--orange);
     }
+
+    main{
+        margin-top: 3em;
+    }
+
+    .purchase-settings{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .quantity-container{
+        margin: 0;
+    }
+
+    .add-to-basket{
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .product-description{
+        max-width: 800px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .company-name{
+        grid-row: 1;
+        grid-column: 1;
+    }
+
+    .sneaker-name{
+        grid-row: 2;
+        grid-column: 1;
+    }
+
+    .sneaker-description{
+        grid-row: 1/3;
+        grid-column: 2;
+        align-self: center;
+    }
+
+    .pricing-container{
+        grid-row: 3;
+        grid-column: 1;
+    }
+
+    .purchase-settings{
+        grid-row: 3;
+        grid-column: 2;
+        justify-content: flex-end;
+    }
+
+    .quantity-container{
+        margin-right: 1em;
+    }
+
+}
+
+
+@media(min-width:924px){
+
+    main{
+        margin-top: 5em;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .company-name{
+        font-size: .8rem;
+    }
+
+    .sneaker-name{
+        font-size: 2.75rem;
+        line-height: 44px;
+    }
+    
+    .price{
+        font-size: 1.75rem;
+    }
+
+    .discount{
+        font-size: 1rem;
+    }
+
+    .add-to-basket{
+        font-size: 1rem;
+    }
+
+    .carouselWrapper{
+        flex-direction: column;
+        column-gap: 0;
+        row-gap: 2em;
+    }
+
+    .thumbnails{
+        flex-direction: row;
+    }
+    
+    .product-description{
+        display: flex;
+        max-width: 450px;
+    }
+    
+    .purchase-settings{
+        justify-content: flex-start;
+    }
+
 }
